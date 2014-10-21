@@ -70,7 +70,8 @@ module Delayed
         end
       end
       def self.mongoid3?
-        ::Mongoid.const_defined? :Observer # deprecated in Mongoid 4.x
+         Gem.loaded_specs["mongoid"].version.version < '4'
+         # ::Mongoid.const_defined? :Observer # deprecated in Mongoid 4.x
       end
     end
   end
